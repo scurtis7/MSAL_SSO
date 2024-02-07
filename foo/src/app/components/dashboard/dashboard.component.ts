@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
+import { MatRowDef, MatTableDataSource } from "@angular/material/table";
 import { Team } from "../../model/team";
 import { TeamService } from "../../service/team.service";
 
@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'school', 'conference'];
   dataSource: MatTableDataSource<Team> = new MatTableDataSource<Team>();
-  recordCount: number;
 
   private teams: Team[];
 
@@ -34,12 +33,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource<Team>(this.teams);
     this.dataSource.data = this.teams;
     this.dataSource.sort = this.sort;
-    this.recordCount = this.dataSource.filteredData.length;
   }
 
   private getTeamList() {
     this.teams = this.teamService.getTeams();
-    console.log(this.teams ?? "");
+  }
+
+  rowClicked(row: Team) {
+    console.log(row.school);
   }
 
 }

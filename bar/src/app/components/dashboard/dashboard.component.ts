@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'school', 'conference'];
   dataSource: MatTableDataSource<Team> = new MatTableDataSource<Team>();
-  recordCount: number;
 
   private teams: Team[];
 
@@ -34,12 +33,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource<Team>(this.teams);
     this.dataSource.data = this.teams;
     this.dataSource.sort = this.sort;
-    this.recordCount = this.dataSource.filteredData.length;
   }
 
   private getTeamList() {
     this.teams = this.teamService.getTeams();
-    console.log(this.teams ?? "");
+  }
+
+  rowClicked(row: Team) {
+    console.log(row.school);
   }
 
 }
