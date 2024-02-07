@@ -1,4 +1,31 @@
 <app-menu pageTitle="FOO Dashboard"></app-menu>
-<div class="main-layout">
-  <span>Dashboard</span>
+
+<div class="title-container">
+  <span class="title-text">College Football Teams</span>
+</div>
+<div class="main-content-table">
+  <div class="mat-elevation-z8 table-container">
+    <table [dataSource]="dataSource" class="team-table" mat-table matSort>
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by id">ID</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.id}} </td>
+      </ng-container>
+
+      <!-- School Column -->
+      <ng-container matColumnDef="school">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by school">School</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.school}} </td>
+      </ng-container>
+
+      <!-- Conference Column -->
+      <ng-container matColumnDef="conference">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by conference">Conference</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.conference}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
 </div>

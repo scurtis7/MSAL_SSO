@@ -1,0 +1,48 @@
+@import "../../../assets/styles/variables";
+
+.title-container {
+  margin: 10px;
+}
+
+.title-text {
+  font-size: 30px;
+  color: $app-blue-4;
+}
+
+.main-content-table {
+  margin-left: 10px;
+  margin-right: 10px;
+  //border: 1px solid red;
+}
+
+.table-container {
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  //border: 1px solid red;
+}
+
+.team-table {
+  margin-bottom: 15px;
+  width: 100%;
+  //border: 1px solid red;
+}
+
+.header-cell {
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  color: $app-white !important;
+  background-color: $app-blue-5 !important;
+}
+
+.table-cell {
+  border: 2px solid white;
+  cursor: pointer;
+  color: $app-blue-4;
+  background-color: $app-grey-4;
+}
+
+
+
