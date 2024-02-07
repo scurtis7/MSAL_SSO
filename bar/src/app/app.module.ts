@@ -5,16 +5,22 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RouterModule, Routes } from "@angular/router";
 import { MaterialModule } from "./common/material.module";
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MenuComponent } from './components/shared/menu/menu.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 const routes: Routes = [
-  // { path: 'dashboard', component: DashboardComponent },
-  // { path: 'detail', component: DetailComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'detail', component: DetailComponent },
   { path: '**', redirectTo: 'dashboard' }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    MenuComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
