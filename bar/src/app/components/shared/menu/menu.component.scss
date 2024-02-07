@@ -1,0 +1,50 @@
+@import "../../../../assets/styles/variables";
+
+.header-container {
+  background-color: $app-green-4;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: max-content auto max-content;
+  grid-template-rows: 60px;
+  //border: red 1px solid;
+}
+
+.header-title {
+  font-size: 40px;
+  color: $app-white;
+  align-self: center;
+  margin-right: 20px;
+  //border: solid 1px white;
+}
+
+.page-title {
+  font-size: 40px;
+  color: $app-white;
+  align-self: center;
+  //border: solid 1px white;
+}
+
+.menu-content {
+  justify-self: left;
+  //border: 1px solid red;
+}
+
+.menu-button {
+  height: 55px;
+  width: 55px;
+}
+
+.hamburger {
+  color: $app-white;
+  transform: scale(2);
+}
+
+.menu-list-item {
+  height: 30px !important;
+}
+
+.menu-item {
+  font-size: 14px;
+  color: $app-blue-3;
+}
+
