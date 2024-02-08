@@ -8,10 +8,12 @@ import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail', component: DetailComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: 'dashboard' }
 ];
 
@@ -20,7 +22,8 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     MenuComponent,
-    DetailComponent
+    DetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,4 +35,5 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
