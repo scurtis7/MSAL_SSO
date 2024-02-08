@@ -1,7 +1,16 @@
-<app-menu pageTitle="FOO Detail"></app-menu>
-<div class="main-layout">
-  <span>Detail Page</span>
-</div>
-<div *ngIf="team">
-  {{team.school}}
+<app-menu pageTitle="Team Detail"></app-menu>
+<div *ngIf="team" class="main-layout">
+  <div class="card-background">
+    <div class="card-title">
+      <h1>{{team.school}}</h1>
+    </div>
+    <div class="card-layout">
+      <span class="detail-item">Conference:</span><span class="detail-item">{{team.conference}}</span>
+      <span class="detail-item">Mascot:</span><span class="detail-item">{{team.mascot}}</span>
+      <span class="detail-item">Stadium Name:</span><span class="detail-item">{{team.stadiumName}}</span>
+      <span class="detail-item">City:</span><span class="detail-item">{{team.city}}</span>
+      <span class="detail-item">State:</span><span class="detail-item">{{team.state}}</span>
+      <span class="detail-item">Zipcode:</span><span class="detail-item">{{team.zip}}</span>
+    </div>
+  </div>
 </div>
