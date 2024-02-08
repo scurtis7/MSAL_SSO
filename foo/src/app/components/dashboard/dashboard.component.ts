@@ -40,7 +40,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   rowClicked(row: Team) {
-    console.log(row.school);
+    let url = "http://localhost:4201/detail?id=" + row.id;
+    console.log(url);
+    (window as any).open(url, "_blank");
   }
 
 }
