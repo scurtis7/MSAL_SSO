@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AuthenticationResult } from "@azure/msal-browser";
 
 enum CacheKey {
-  ID_TOKEN = 'token.id',
+  TOKEN_ID = 'token.id',
   TOKEN_EXPIRES_ON = 'token.expires_on',
   TOKEN_USERNAME = 'token.username',
 }
@@ -16,13 +16,13 @@ export class CacheService {
   }
 
   cacheTokenInformation(authResult: AuthenticationResult): void {
-    this.setCacheObject<Object>(CacheKey.ID_TOKEN, authResult.idToken);
+    this.setCacheObject<Object>(CacheKey.TOKEN_ID, authResult.idToken);
     this.cacheTokenExpiresOn(authResult.expiresOn);
     this.setCacheString(CacheKey.TOKEN_USERNAME, authResult.account?.username ?? "");
   }
 
   getIdToken(): Object {
-    return this.getCache(CacheKey.ID_TOKEN) ?? '';
+    return this.getCache(CacheKey.TOKEN_ID) ?? '';
   }
 
   cacheTokenExpiresOn(expiration: Date | null): void {
