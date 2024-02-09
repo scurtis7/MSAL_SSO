@@ -16,7 +16,7 @@ export const msalConfig: Configuration = {
     clientId: clientId, // This is the ONLY mandatory field that you need to supply.
     authority: authority,
     redirectUri: "/", // Points to window.location.origin. You must register this URI on Azure portal/App Registration.
-    postLogoutRedirectUri: "/", // Indicates the page to navigate after logout.
+    postLogoutRedirectUri: "/login", // Indicates the page to navigate after logout.
     navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
   },
   cache: {

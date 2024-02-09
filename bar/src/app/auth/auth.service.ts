@@ -15,10 +15,7 @@ export class AuthService {
   }
 
   logout(): void {
-    const logoutRequest = {
-      postLogoutRedirectUri: '/login'
-    }
-    this.msalService.logoutRedirect(logoutRequest);
+    this.msalService.logoutRedirect();
     this.cacheService.clearAllCache();
   }
 
