@@ -14,10 +14,10 @@ export class LogoutGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.logout(route, state);
+    return this.logout();
   }
 
-  private logout(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  private logout(): boolean {
     this.authService.logout();
     return false;
   }
