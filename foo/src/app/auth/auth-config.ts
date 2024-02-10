@@ -1,4 +1,4 @@
-import { BrowserCacheLocation } from "@azure/msal-browser";
+import { BrowserCacheLocation, LogLevel } from "@azure/msal-browser";
 import { Configuration } from "@azure/msal-browser/dist/config/Configuration";
 
 const clientId = "8f4f63c9-a875-441b-b01a-ffb8a2f2da51";
@@ -22,5 +22,14 @@ export const msalConfig: Configuration = {
   cache: {
     cacheLocation: BrowserCacheLocation.LocalStorage, // Configures cache location. "sessionStorage" is more secure, but "localStorage" gives you SSO between tabs.
     storeAuthStateInCookie: isIE, // Set this to "true" if you are having issues on IE11 or Edge
+  },
+  system: {
+    loggerOptions: {
+      loggerCallback(logLevel: LogLevel, message: string) {
+        console.log(message);
+      },
+      logLevel: LogLevel.Trace,
+      piiLoggingEnabled: false,
+    }
   }
 }
