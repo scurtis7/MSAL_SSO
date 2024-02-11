@@ -1,0 +1,29 @@
+@import "../../../assets/styles/variables";
+
+.main-layout {
+  margin: 10px;
+}
+
+.card-background {
+  border-radius: 10px;
+  background-color: #D4E6F1;
+  width: max-content;
+  padding: 20px;
+  color: $app-blue-3;
+}
+
+.card-title {
+  border-bottom: solid 2px $app-blue-3;
+}
+
+.card-layout {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 150px max-content;
+  grid-template-rows: auto auto auto auto auto auto;
+}
+
+.storage-item {
+  font-size: larger;
+}
+

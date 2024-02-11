@@ -13,6 +13,7 @@ import { BrowserUtils, InteractionType, IPublicClientApplication, PublicClientAp
 import { MSAL_GUARD_CONFIG, MSAL_INSTANCE, MsalBroadcastService, MsalGuard, MsalGuardConfiguration, MsalModule, MsalRedirectComponent, MsalService } from "@azure/msal-angular";
 import { msalConfig } from "./auth/auth-config";
 import { LogoutGuard } from "./auth/logout.guard";
+import { StorageComponent } from './components/storage/storage.component';
 
 /**
  * Documentation for MSAL
@@ -35,6 +36,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [MsalGuard] },
   { path: 'detail', component: DetailComponent, canActivate: [MsalGuard] },
+  { path: 'storage', component: StorageComponent, canActivate: [MsalGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LoginComponent, canActivate: [LogoutGuard] },
   { path: '**', redirectTo: 'dashboard' }
@@ -46,7 +48,8 @@ const routes: Routes = [
     DashboardComponent,
     MenuComponent,
     DetailComponent,
-    LoginComponent
+    LoginComponent,
+    StorageComponent
   ],
   imports: [
     BrowserModule,
