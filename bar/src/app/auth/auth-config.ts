@@ -28,7 +28,7 @@ export const msalConfig: Configuration = {
       loggerCallback(logLevel: LogLevel, message: string) {
         console.log(message);
       },
-      logLevel: LogLevel.Trace,
+      logLevel: LogLevel.Warning,
       piiLoggingEnabled: false,
     }
   }

@@ -2,15 +2,38 @@
 <div class="main-layout">
   <div class="card-background">
     <div class="card-title">
-      <h1>Local Storage</h1>
+      <h1>ID Token</h1>
     </div>
     <div class="card-layout">
-      <!--      <span class="storage-item">Conference:</span><span class="storage-item">{{team.conference}}</span>-->
-      <!--      <span class="storage-item">Mascot:</span><span class="storage-item">{{team.mascot}}</span>-->
-      <!--      <span class="storage-item">Stadium Name:</span><span class="storage-item">{{team.stadiumName}}</span>-->
-      <!--      <span class="storage-item">City:</span><span class="storage-item">{{team.city}}</span>-->
-      <!--      <span class="storage-item">State:</span><span class="storage-item">{{team.state}}</span>-->
-      <!--      <span class="storage-item">Zipcode:</span><span class="storage-item">{{team.zip}}</span>-->
+      <span class="storage-item">clientId:</span><span class="storage-item">{{idToken.clientId}}</span>
+      <span class="storage-item">credentialType:</span><span class="storage-item">{{idToken.credentialType}}</span>
+      <span class="storage-item">homeAccountId:</span><span class="storage-item">{{idToken.homeAccountId}}</span>
+      <span class="storage-item">environment:</span><span class="storage-item">{{idToken.environment}}</span>
+      <span class="storage-item">realm:</span><span class="storage-item">{{idToken.realm}}</span>
+      <span class="storage-item">secret:</span><span class="storage-item">{{idToken.secret}}</span>
     </div>
   </div>
+
+  <div style="margin: 20px;"></div>
+
+  <div class="card-background">
+    <div class="card-title">
+      <h1>Account Information</h1>
+    </div>
+    <div class="card-layout2">
+      <span class="storage-item">authorityType:</span><span class="storage-item">{{accountInfo.authorityType}}</span>
+      <span class="storage-item">clientInfo:</span><span class="storage-item">{{accountInfo.clientInfo}}</span>
+      <span class="storage-item">homeAccountId:</span><span class="storage-item">{{accountInfo.homeAccountId}}</span>
+      <span class="storage-item">environment:</span><span class="storage-item">{{accountInfo.environment}}</span>
+      <span class="storage-item">realm:</span><span class="storage-item">{{accountInfo.realm}}</span>
+      <span class="storage-item">localAccountId:</span><span class="storage-item">{{accountInfo.localAccountId}}</span>
+      <span class="storage-item">username:</span><span class="storage-item">{{accountInfo.username}}</span>
+      <span class="storage-item">name:</span><span class="storage-item">{{accountInfo.name}}</span>
+      <span class="storage-item">tenantId:</span><span class="storage-item">{{accountInfo.tenantProfiles[0].tenantId}}</span>
+      <span class="storage-item">localAccountId:</span><span class="storage-item">{{accountInfo.tenantProfiles[0].localAccountId}}</span>
+      <span class="storage-item">name:</span><span class="storage-item">{{accountInfo.tenantProfiles[0].name}}</span>
+      <span class="storage-item">isHomeTenant:</span><span class="storage-item">{{accountInfo.tenantProfiles[0].isHomeTenant}}</span>
+    </div>
+  </div>
+
 </div>

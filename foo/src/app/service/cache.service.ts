@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AuthenticationResult } from "@azure/msal-browser";
-
-enum CacheKey {
-  TOKEN_ID = 'token.id',
-  TOKEN_EXPIRES_ON = 'token.expires_on',
-  TOKEN_USERNAME = 'token.username',
-}
+import { TokenKeys } from "../model/token-keys";
+import { IdToken } from "../model/id-token";
+import { AcctInfo } from "../model/acct-info";
 
 @Injectable({
   providedIn: 'root'
@@ -15,42 +11,24 @@ export class CacheService {
   constructor() {
   }
 
-  cacheTokenInformation(authResult: AuthenticationResult): void {
-    this.setCacheObject<Object>(CacheKey.TOKEN_ID, authResult.idToken);
-    this.cacheTokenExpiresOn(authResult.expiresOn);
-    this.setCacheString(CacheKey.TOKEN_USERNAME, authResult.account?.username ?? "");
+  getIdToken() {
+    return this.getCache<IdToken>(this.getTokenKeys().idToken);
   }
 
-  getIdToken(): Object {
-    return this.getCache(CacheKey.TOKEN_ID) ?? '';
+  getAccountInfo() {
+    return this.getCache<AcctInfo>(this.getAccountKey());
   }
 
-  cacheTokenExpiresOn(expiration: Date | null): void {
-    let expiresOn = 0;
-    if (expiration != null) {
-      expiresOn = Math.floor(expiration.getTime() / 1000);
-    }
-    this.setCacheObject<number>(CacheKey.TOKEN_EXPIRES_ON, expiresOn);
+  private getTokenKeys(): TokenKeys {
+    return this.getCache<TokenKeys>("msal.token.keys.8f4f63c9-a875-441b-b01a-ffb8a2f2da51");
   }
 
-  getTokenExpiresOn(): number {
-    let expiresOn = this.getCache<number>(CacheKey.TOKEN_EXPIRES_ON);
-    if (expiresOn === undefined) {
-      return 0;
-    }
-    return expiresOn;
+  private getAccountKey() {
+    return this.getCache<string>("msal.account.keys");
   }
 
   clearAllCache(): void {
     localStorage.clear();
-  }
-
-  private setCacheObject = <T>(key: string, value: T): void => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-
-  private setCacheString = (key: string, value: string): void => {
-    localStorage.setItem(key, value);
   }
 
   private getCache = <T>(key: string): T | undefined => {

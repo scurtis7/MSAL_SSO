@@ -23,6 +23,13 @@
   grid-template-rows: auto auto auto auto auto auto;
 }
 
+.card-layout2 {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 150px max-content;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
 .storage-item {
   font-size: larger;
 }
