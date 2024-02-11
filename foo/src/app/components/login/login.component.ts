@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           const authResult = result.payload as AuthenticationResult;
           this.cacheService.cacheTokenInformation(authResult);
           console.log("ID Token => " + authResult.idToken);
+          this.router.navigate(["/"]);
         } else if (result.eventType.includes(EventType.LOGOUT_SUCCESS || EventType.LOGOUT_END)) {
           this.cacheService.clearAllCache();
           this.router.navigate(["/"]);
