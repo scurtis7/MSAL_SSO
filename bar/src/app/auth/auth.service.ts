@@ -15,22 +15,22 @@ export class AuthService {
   }
 
   logout(): void {
-    this.msalService.logoutRedirect();
     this.cacheService.clearAllCache();
+    this.msalService.logoutRedirect();
   }
 
-  isUserLoggedIn(): boolean {
-    return this.isTokenValid();
-  }
-
-  private isTokenValid(): boolean {
-    const currentTime = Math.floor(Date.now() / 1000);  // current epoch time in seconds
-    const expireTime = this.cacheService.getTokenExpiresOn();
-    // console.log("Current Time->" + currentTime + "   Expire Time->" + expireTime);
-    if (expireTime === undefined) {
-      return false;
-    }
-    return expireTime > currentTime;
-  }
+  // isUserLoggedIn(): boolean {
+  //   return this.isTokenValid();
+  // }
+  //
+  // private isTokenValid(): boolean {
+  //   const currentTime = Math.floor(Date.now() / 1000);  // current epoch time in seconds
+  //   const expireTime = this.cacheService.getTokenExpiresOn();
+  //   // console.log("Current Time->" + currentTime + "   Expire Time->" + expireTime);
+  //   if (expireTime === undefined) {
+  //     return false;
+  //   }
+  //   return expireTime > currentTime;
+  // }
 
 }
