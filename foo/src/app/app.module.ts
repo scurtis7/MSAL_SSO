@@ -14,6 +14,7 @@ import { MSAL_GUARD_CONFIG, MSAL_INSTANCE, MsalBroadcastService, MsalGuard, Msal
 import { msalConfig } from "./auth/auth-config";
 import { LogoutGuard } from "./auth/logout.guard";
 import { StorageComponent } from './components/storage/storage.component';
+import { WarningComponent } from './components/warning/warning.component';
 
 /**
  * Documentation for MSAL
@@ -49,7 +50,8 @@ const routes: Routes = [
     MenuComponent,
     DetailComponent,
     LoginComponent,
-    StorageComponent
+    StorageComponent,
+    WarningComponent
   ],
   imports: [
     BrowserModule,

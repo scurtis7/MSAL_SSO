@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Timeout Warning</h1>
+<div mat-dialog-content>
+  <div>Your session will timeout in {{secondsRemaining$ | async}} seconds!</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="logout(false)">Refresh Session</button>
+  <button mat-button (click)="logout(true)">Logout Session</button>
+</div>
